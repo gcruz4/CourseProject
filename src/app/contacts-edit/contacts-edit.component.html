@@ -1,0 +1,39 @@
+<div class="button-row">
+    <a mat-fab color="primary" (click)="contactDetails()"><mat-icon>show</mat-icon></a>
+  </div>
+  <form [formGroup]="contactForm" (ngSubmit)="onFormSubmit(contactForm.value)">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Name" formControlName="Name" [errorStateMatcher]="matcher" />
+      <mat-error>
+        <span *ngIf="!contactForm.get('Name').valid && contactForm.get('Name').touched"
+          >Please enter contact name</span
+        >
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="Email"
+        formControlName="Email"
+        [errorStateMatcher]="matcher"
+      />
+      <mat-error>
+        <span *ngIf="!contactForm.get('Email').valid && contactForm.get('Email').touched"
+          >Please enter contacts email address</span
+        >
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Phone" formControlName="Phone" [errorStateMatcher]="matcher" />
+      <mat-error>
+        <span *ngIf="!contactForm.get('Phone').valid && contactForm.get('Phone').touched"
+          >Please enter contacts phone number</span
+        >
+      </mat-error>
+    </mat-form-field>
+    <div class="button-row">
+      <button type="submit" [disabled]="!contactForm.valid" mat-fab color="primary">
+        <mat-icon>save</mat-icon>
+      </button>
+    </div>
+  </form>

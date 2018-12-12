@@ -1,0 +1,16 @@
+<div class="button-row">
+    <a mat-fab color="primary" [routerLink]="['/contacts']"><mat-icon>list</mat-icon></a>
+  </div>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title
+        ><h2>{{ contact.Name }}</h2></mat-card-title
+      >
+      <mat-card-subtitle>{{ contact.Email }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content> {{ contact.Phone }} </mat-card-content>
+    <mat-card-actions>
+      <a mat-fab color="primary" [routerLink]="['/contacts-edit', id]"><mat-icon>edit</mat-icon></a>
+      <a mat-fab color="warn" (click)="deleteContact(id)"><mat-icon>delete</mat-icon></a>
+    </mat-card-actions>
+  </mat-card>
